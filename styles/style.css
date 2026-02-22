@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-/* body {
-    background-color: bisque;
-} */
-
 body {
     background-color:  #f8fafc;
     color: #1f2937;
@@ -30,4 +26,33 @@ body {
     font-size: 28px;
     font-weight: 700;
 }
+
+/* Dashboard Summary Section */
+
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Dashboard summary-card design */
+.summary-card{
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-title{
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #373c44;
+}
+
+.summary-count {
+    font-size: 25px;
+    font-weight: bold;
+}
+
 
