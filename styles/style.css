@@ -103,3 +103,27 @@ body {
     color: #ffffff;
     border-color: #2563eb;
 }
+
+
+/* Cards Container */
+
+.jobs-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+
+
+/* Responsive Mobile */
+
+/* Dashboard part */
+
+@media (max-width: 768px){
+    .dashboard-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
