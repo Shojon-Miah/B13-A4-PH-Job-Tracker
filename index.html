@@ -6,10 +6,15 @@
     <title>PH Job Tracker Dashboard</title>
 </head>
 <body>
+
+    <!-- Dashboard Section -->
     <main class="dashboard-container">
+
         <header class="dashboard-header">
             <h1 class="website-title">Job Application Tracker</h1>
         </header>
+
+        <!-- Dashboard summary-card section -->
 
         <section class="dashboard-summary">
 
@@ -29,7 +34,25 @@
             </div>
 
         </section>
+
+        <!-- Available Jobs Section-->
+        
+        <section class="available-jobs-section">
+            <div class="jobs-header">
+                <h2 class="jobs-title">Available Jobs</h2>
+                <p class="jobs-count" id="tabJobsCount">0</p>
+            </div>
+
+            <div class="jobs-tabs">
+                <button class="tab-button active-tab" data-tab="all">All</button>
+                <button class="tab-button" data-tab="interview">Interview</button>
+                <button class="tab-button" data-tab="rejected">Rejected</button>
+            </div>
+
+        </section>
+
     </main>
 </body>
 </html>
+
 
