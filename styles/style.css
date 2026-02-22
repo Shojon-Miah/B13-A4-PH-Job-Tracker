@@ -1,4 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* body{
+/* body {
     background-color: bisque;
 } */
+
+body {
+    background-color:  #f8fafc;
+    color: #1f2937;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* Website Title */
+
+.dashboard-header{
+    margin-bottom: 30px;
+}
+
+.website-title{
+    font-size: 28px;
+    font-weight: 700;
+}
+
