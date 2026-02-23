@@ -1,5 +1,4 @@
-// Jobs information section 
-
+// Jobs description section 
 
 const jobsData = [
 
@@ -92,4 +91,60 @@ const jobsData = [
 
 
 // console.log(jobsData);
+
+// display Status Text in dashboard
+
+function getStatusText(status) {
+    if (status === 'interview') {
+        return "Interview";
+    }
+    else if (status === "rejected") {
+        return "Rejected";
+    }
+    else {
+        return "Not Applied";
+    }
+}
+
+
+
+// Create renderJobs user define function to make card
+
+function renderJobs(jobsArray)
+{
+    const container = document.getElementById("jobsCardsContainer");
+    container.innerHTML= "";
+
+      jobsArray.forEach(function(job){
+
+        const card = document.createElement("div");
+        card.classList.add("job-card");
+
+        // display jobs description in the dashboard 
+
+        card.innerHTML = `
+            <h3 class="job-company">${job.companyName}</h3>
+            <p class="job-position">${job.position}</p>
+            <p class="job-location">Location: ${job.location}</p>
+            <p class="job-type">Type: ${job.type}</p>
+            <p class="job-salary">Salary: ${job.salary}</p>
+
+            <p class="job-status">${getStatusText(job.status)}</p>
+
+            <p class="job-description"> ${job.description}</p>
+
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+
+   
+
+}
+
+renderJobs(jobsData);
+
 
