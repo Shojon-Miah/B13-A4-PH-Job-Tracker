@@ -110,29 +110,40 @@ function getStatusText(status) {
 
 // Create renderJobs user define function to make card
 
-function renderJobs(jobsArray)
-{
+function renderJobs(jobsArray) {
     const container = document.getElementById("jobsCardsContainer");
-    container.innerHTML= "";
+    container.innerHTML = "";
 
-      jobsArray.forEach(function(job){
+    jobsArray.forEach(function (job) {
 
         const card = document.createElement("div");
         card.classList.add("job-card");
 
-        // display jobs description in the dashboard 
+        // display job cards description in the dashboard 
 
         card.innerHTML = `
+            <button class="delete-icom" data-id= "${job.id}">✖</button>
+
             <h3 class="job-company">${job.companyName}</h3>
             <p class="job-position">${job.position}</p>
-            <p class="job-location">Location: ${job.location}</p>
-            <p class="job-type">Type: ${job.type}</p>
-            <p class="job-salary">Salary: ${job.salary}</p>
+
+            <div class="job-meta">
+                <span class="job-location">${job.location}</span>
+                <span class="meta-separator">•</span>
+                <span class="job-type">${job.type}</span>
+                <span class="meta-separator">•</span>
+                <span class="job-salary">${job.salary}</span>
+            </div>
 
             <p class="job-status">${getStatusText(job.status)}</p>
-
             <p class="job-description"> ${job.description}</p>
 
+            <div class="job-actions">
+
+                <button class="interview-btn" data-id ="${job.id}">INTERVIEW</button>
+                <button class="rejected-btn" data-id= "${job.id}">REJECTED</button>
+            
+            </div>
 
         `;
 
@@ -140,8 +151,8 @@ function renderJobs(jobsArray)
 
     });
 
-
-   
+    document.getElementById("totalJobsCount").textContent = jobsData.length;
+    document.getElementById("tabJobsCount").textContent = jobsArray.length;
 
 }
 

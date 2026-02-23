@@ -114,6 +114,117 @@ body {
 }
 
 
+/* Card Design */
+
+.job-card {
+
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.job-company {
+    font-size: 20px;
+    color: #002C5C;
+    margin-bottom: 6px;
+}
+
+.job-position {
+
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #64748B;
+
+}
+
+/* problem fix korte hbe -> row */
+
+.job-location, .job-type, .job-salary {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #64748B;
+}
+
+/* Status Highlight - > js  */
+
+.job-status {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 8px;
+    display: inline-block;
+    border-radius: 4px;
+    color: #002C5C;
+    background-color:#eff0f1;
+    max-width: 20%;
+}
+
+.job-description {
+
+    color: #323B49;
+    font-size: 12px;
+    margin: 14px 0;
+}
+
+.job-actions {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+
+}
+
+/* update */
+
+.job-meta{
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #64748B;
+}
+
+.meta-separator{
+    color: #64748B;
+    font-weight:bolder;
+}
+
+.interview-btn, .rejected-btn{
+    padding: 6px 14px;
+    border-radius: 5px;
+    
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.interview-btn {
+    color: #10B981;
+    background-color: #e7eef6;
+    border: 1px solid #10B981;
+    border-radius: 5px;
+}
+
+.rejected-btn{
+    background-color: #e7eef6;
+    color: #EF4444;
+    border: 1px solid #EF4444;
+    border-radius: 5px;
+}
+
+
+
 
 /* Responsive for Mobile */
 
