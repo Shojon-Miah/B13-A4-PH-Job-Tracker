@@ -47,6 +47,7 @@ function filterAndRenderJob(){
     renderJobs(filteredJobs);
 }
 
+
 //Dashboard Count Function
 
 function updateDashboardCounts(){
@@ -64,6 +65,24 @@ function updateDashboardCounts(){
 }
 
 
+//Create Delete Function
+
+function deleteJob(jobId){
+    const jobIndex = jobsData.findIndex(function(job) {
+        return job.id === jobId;
+    });
+
+    if (jobIndex === -1) return;
+
+    //remove from array
+    jobsData.splice(jobIndex, 1);
+
+    // re-render according to current tab
+
+    filterAndRenderJob();
+
+}
+
 //Interview, Rejected Button Logic with Toggle
 
 // set Event Listener 
@@ -79,11 +98,23 @@ jobsContainer.addEventListener("click", function(event){
         const jobId = parseInt(clickedElement.dataset.id);
         updateJobStatus(jobId, "interview");
     }
+
     // for rejected button
     if(clickedElement.classList.contains("rejected-btn")){
         const jobId = parseInt(clickedElement.dataset.id);
         updateJobStatus(jobId, "rejected");
     }
+
+    //delete button
+    if(clickedElement.classList.contains("delete-icon") || clickedElement.closest(".delete-icon")){
+
+        const deleteButton = clickedElement.closest(".delete-icon");
+
+        const jobId = parseInt(deleteButton.dataset.id);
+        deleteJob(jobId);
+        
+    }
+
 
 });
 
