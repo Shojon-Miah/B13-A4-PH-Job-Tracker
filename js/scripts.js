@@ -1,3 +1,75 @@
+// Add Tab Switching with filter method
+
+// Active Tab Track
+let currentTab = "all";
+//  Tab Button Select
+const tabButtons =document.querySelectorAll(".tab-button");
+
+//Tab Click Event
+tabButtons.forEach(function(button){
+
+button.addEventListener("click", function(){
+
+// Active class remove from all: 
+tabButtons.forEach(btn => btn.classList.remove("active-tab"))
+
+//add active to click
+button.classList.add("actice-tab");
+
+// select tab type
+const selectedTab = button.dataset.tab;
+currentTab = selectedTab;
+
+filterAndRenderJob();
+
+});
+
+});
+
+
+
+// Create Filter Function
+function filterAndRenderJob(){
+
+
+    let filteredJobs;
+
+    if(currentTab === "all"){
+        filteredJobs = jobsData;
+    }
+    else {
+        filteredJobs = jobsData.filter(function(job){
+
+            return job.status === currentTab;
+        });
+    }
+
+    renderJobs(filteredJobs);
+}
+
+//Dashboard Count Function
+
+function updateDashboardCounts(){
+
+    const total = jobsData.length;
+
+    const interviewCount = jobsData.filter(job => job.status === "interview").length;
+    const rejectedCount = jobsData.filter(job => job.status === "rejected").length;
+
+
+    document.getElementById("totalJobsCount").textContent = total;
+    document.getElementById("interviewJobsCount").textContent = interviewCount;
+    document.getElementById("rejectedJobsCount").textContent = rejectedCount;
+    
+}
+
+
+//Interview / Rejected Button Logic with Toggle
+
+
+
+
+
 // Jobs description section 
 
 const jobsData = [
@@ -96,13 +168,13 @@ const jobsData = [
 
 function getStatusText(status) {
     if (status === 'interview') {
-        return "Interview";
+        return "INTERVIEW";
     }
     else if (status === "rejected") {
-        return "Rejected";
+        return "REJECTED";
     }
     else {
-        return "Not Applied";
+        return "NOT APPLIED";
     }
 }
 
@@ -122,7 +194,7 @@ function renderJobs(jobsArray) {
         // display job cards description in the dashboard 
 
         card.innerHTML = `
-            <button class="delete-icom" data-id= "${job.id}">✖</button>
+            <button class="delete-icon" data-id= "${job.id}"><i class="fa-solid fa-trash"></i></button>
 
             <h3 class="job-company">${job.companyName}</h3>
             <p class="job-position">${job.position}</p>
@@ -135,7 +207,7 @@ function renderJobs(jobsArray) {
                 <span class="job-salary">${job.salary}</span>
             </div>
 
-            <p class="job-status">${getStatusText(job.status)}</p>
+            <p class="job-status ${job.status}">${getStatusText(job.status)}</p>
             <p class="job-description"> ${job.description}</p>
 
             <div class="job-actions">
@@ -151,11 +223,14 @@ function renderJobs(jobsArray) {
 
     });
 
-    document.getElementById("totalJobsCount").textContent = jobsData.length;
+    // count update
+
+    updateDashboardCounts();
     document.getElementById("tabJobsCount").textContent = jobsArray.length;
 
 }
 
 renderJobs(jobsData);
+
 
 
