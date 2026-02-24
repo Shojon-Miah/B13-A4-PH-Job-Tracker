@@ -66,6 +66,50 @@ function updateDashboardCounts(){
 
 //Interview / Rejected Button Logic with Toggle
 
+// set Event Listener 
+
+const jobsContainer = document.getElementById("jobsCardsContainer");
+
+jobsContainer.addEventListener("click", function(event){
+
+    const clickedElement = event.target;
+    
+    // for interview button
+    if(clickedElement.classList.contains("interview-btn")){
+        const jobId = parseInt(clickedElement.dataset.id);
+        updateJobStatus(jobId, "interview");
+    }
+    // for rejected button
+    if(clickedElement.classList.contains("rejected-btn")){
+        const jobId = parseInt(clickedElement.dataset.id);
+        updateJobStatus(jobId, "rejected");
+    }
+
+});
+
+
+// Toggle Logic -> status update function
+function updateJobStatus(jobId, newStatus){
+
+    const job = jobsData.find(function(item){
+        return item.id === jobId;
+    });
+
+    if(!job) return;
+
+    // toggle
+    if (job.status === newStatus){
+        job.status = "all";
+    }
+    else {
+        job.status = newStatus;
+    }
+
+    filterAndRenderJob();
+}
+
+
+
 
 
 
