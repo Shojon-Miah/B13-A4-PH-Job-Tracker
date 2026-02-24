@@ -5,8 +5,10 @@
 }
 
 body {
-    background-color:  #f8fafc;
-    color: #1f2937;
+    font-family: "Geist", sans-serif;
+    background-color:  #F8FAFC;
+   
+    /* color: #1f2937; */
 }
 
 /* Dashboard Container */
@@ -268,8 +270,26 @@ body {
 } */
 
 
+/* design for empty HTML structure */
+.empty-state {
+    text-align: center;
+    padding: 40px 0;
+    color: #64748B;
+}
 
+.empty-icon{
+    font-size: 80px;
+    margin-bottom: 25px;
+    color: #7DA8FF;
+}
 
+.empty-title {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+.empty-subtitle{
+    font-size: 14px;
+}
 
 
 /* Responsive for Mobile */

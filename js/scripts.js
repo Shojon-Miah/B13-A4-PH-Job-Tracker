@@ -64,7 +64,7 @@ function updateDashboardCounts(){
 }
 
 
-//Interview / Rejected Button Logic with Toggle
+//Interview, Rejected Button Logic with Toggle
 
 // set Event Listener 
 
@@ -228,7 +228,25 @@ function getStatusText(status) {
 
 function renderJobs(jobsArray) {
     const container = document.getElementById("jobsCardsContainer");
+    
     container.innerHTML = "";
+
+    // for empty HTML structure
+    if (jobsArray.length === 0){
+        container.innerHTML = `
+        <div class="empty-state">
+            <i class="fa-regular fa-folder-open empty-icon"></i>
+            <h3 class="empty-title">No Jobs Available</h3>
+            <p class="empty-subtitle">Check back soon for new job opportunities</p>
+        </div>
+    `;
+
+        updateDashboardCounts();
+        document.getElementById("tabJobsCount").textContent = 0;
+
+        return;
+
+}
 
     jobsArray.forEach(function (job) {
 
